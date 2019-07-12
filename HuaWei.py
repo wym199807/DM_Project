@@ -54,7 +54,7 @@ test_basic['fontSize'] = test_basic['fontSize'].fillna(round(user_basic_info['fo
 train_app = train_basic.merge(user_app_actived, how='left', on='uid')[['uid', 'appId']]
 test_app = test_basic.merge(user_app_actived, how='left', on='uid')[['uid', 'appId']]
 
-vectorizer = CountVectorizer(min_df=1, max_df=0.7, tokenizer=lambda x:x.split('#'), max_features=3000)
+vectorizer = CountVectorizer(min_df=1, max_df=0.7, tokenizer=lambda x:x.split('#'))
 train_app_counts = vectorizer.fit_transform(train_app['appId'])
 test_app_counts = vectorizer.transform(test_app['appId'])
 
